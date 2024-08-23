@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background: rgb(238,174,202);
+            background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);;
+        }
+        textarea{
+            width: 350px;
+            height: 200px;
+            margin-top: 5px;
+            background-color: rgb(216, 245, 235);
+            font-size: 20px;
+            border: 5px;
+            border-radius: 5px;
+        }
+        p{
+            font-size: 18px;        
+        }
+        
+        span{
+            color: red;
+        }
+        .input-group{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            padding: 5px;
+        }
+        label{
+            font-size: 25px;
+            font-weight: bold;
+
+        }
+    </style>
+
+    <div class="input-group">
+        <label for="textArea">Text Playground</label>
+        <textarea type="text" id="textArea" placeholder="Type text here" maxlength="200" oninput="check()"></textarea>
+        <p id="count">0 / 200 characters</p>
+        <span id="error"></span>
+    </div>
+
+<script>
+   
+    function check(){
+        var textArea = document.getElementById('textArea').value.length
+        var count = document.getElementById('count')
+        var error = document.getElementById('error')
+
+        if(textArea === 200){
+            error.textContent = "max characters reached"
+        }else{
+            error.textContent = ""
+        }
+        count.textContent = textArea + " /" + " 200" + " characters"
+    }
+    
+</script>
+   
+</body>
+</html>
